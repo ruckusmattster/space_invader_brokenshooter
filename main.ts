@@ -2,10 +2,9 @@ input.onButtonPressed(Button.A, function () {
 	
 })
 input.onPinPressed(TouchPin.P1, function () {
-    if (y_axis < 0) {
+    if (y_axis == 0) {
         led.unplot(x_axis, y_axis)
-        y_axis += 1
-        x_axis += 1
+        y_axis += -1
         led.plot(x_axis, y_axis)
         basic.pause(625)
     }

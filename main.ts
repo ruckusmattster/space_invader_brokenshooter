@@ -10,14 +10,15 @@ input.onPinPressed(TouchPin.P1, function () {
     }
 })
 // startup
-let missile_x = 0
 let missile_y = 0
+let missile_x = 0
 let player_x = 0
 player_x = 2
 led.plot(player_x, 4)
 let alien_x = 0
 let alien_y = 0
-while (true) {
+let _true = 1
+if (_true == 1) {
     for (let index = 0; index < 4; index++) {
         led.plot(alien_x, alien_y)
         basic.pause(500)
@@ -29,6 +30,11 @@ while (true) {
         basic.pause(500)
         led.unplot(alien_x, alien_y)
         alien_x += -1
+    }
+    if (alien_x == missile_x) {
+        _true = 0
+        basic.pause(600)
+        led.unplot(alien_x, alien_y)
     }
 }
 // move left

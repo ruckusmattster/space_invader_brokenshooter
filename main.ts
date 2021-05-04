@@ -18,20 +18,6 @@ led.plot(player_x, 4)
 let alien_x = 0
 let alien_y = 0
 let _true = 1
-if (_true <= 1) {
-    for (let index = 0; index < 4; index++) {
-        led.plot(alien_x, alien_y)
-        basic.pause(500)
-        led.unplot(alien_x, alien_y)
-        alien_x += 1
-    }
-    for (let index = 0; index < 4; index++) {
-        led.plot(alien_x, alien_y)
-        basic.pause(500)
-        led.unplot(alien_x, alien_y)
-        alien_x += -1
-    }
-}
 // move left
 basic.forever(function () {
     while (input.isGesture(Gesture.TiltLeft)) {
@@ -40,7 +26,7 @@ basic.forever(function () {
             player_x += -1
             led.plot(player_x, 4)
         }
-        basic.pause(400)
+        basic.pause(200)
     }
 })
 // move right
@@ -51,11 +37,25 @@ basic.forever(function () {
             player_x += 1
             led.plot(player_x, 4)
         }
-        basic.pause(400)
+        basic.pause(200)
     }
 })
 // move left
 basic.forever(function () {
+    if (_true <= 1) {
+        for (let index = 0; index < 4; index++) {
+            led.plot(alien_x, alien_y)
+            basic.pause(500)
+            led.unplot(alien_x, alien_y)
+            alien_x += 1
+        }
+        for (let index = 0; index < 4; index++) {
+            led.plot(alien_x, alien_y)
+            basic.pause(500)
+            led.unplot(alien_x, alien_y)
+            alien_x += -1
+        }
+    }
     if (alien_x == missile_x) {
         _true = 5
         basic.pause(600)

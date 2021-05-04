@@ -1,6 +1,4 @@
-input.onButtonPressed(Button.A, function () {
-	
-})
+// shooting
 input.onPinPressed(TouchPin.P1, function () {
     if (y_axis != 0) {
         led.unplot(player_x, y_axis)
@@ -9,12 +7,14 @@ input.onPinPressed(TouchPin.P1, function () {
         basic.pause(625)
     }
 })
+// startup
 let y_axis = 0
 let player_x = 0
 let x_axis = 2
 player_x = 2
 y_axis = 4
 led.plot(x_axis, 4)
+// move left
 basic.forever(function () {
     while (input.isGesture(Gesture.TiltLeft)) {
         if (x_axis > 0) {
@@ -26,6 +26,7 @@ basic.forever(function () {
         basic.pause(625)
     }
 })
+// move right
 basic.forever(function () {
     while (input.isGesture(Gesture.TiltRight)) {
         if (x_axis < 4) {

@@ -56,9 +56,4 @@ basic.forever(function () {
             alien_x += -1
         }
     }
-    if (alien_x == missile_x) {
-        _true = 5
-        basic.pause(600)
-        led.unplot(alien_x, alien_y)
-    }
 })

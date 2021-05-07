@@ -18,7 +18,7 @@ player_x = 2
 led.plot(player_x, 4)
 let alien_x = 0
 let alien_y = 0
-let _true = 1
+let _true = 0
 // move left
 basic.forever(function () {
     while (input.isGesture(Gesture.TiltLeft)) {
@@ -43,7 +43,7 @@ basic.forever(function () {
 })
 // move left
 basic.forever(function () {
-    if (_true <= 1) {
+    if (z != 5) {
         for (let index = 0; index < 4; index++) {
             led.plot(alien_x, z)
             basic.pause(500)
@@ -63,5 +63,13 @@ basic.forever(function () {
         led.unplot(alien_x, z)
         basic.pause(500)
         led.plot(alien_x, z)
+    } else {
+        basic.showLeds(`
+            . # # # #
+            . # . . .
+            . # # # .
+            . # . . .
+            . # . . .
+            `)
     }
 })

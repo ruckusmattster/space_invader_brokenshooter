@@ -10,6 +10,7 @@ input.onPinPressed(TouchPin.P1, function () {
     }
 })
 // startup
+let z = 0
 let missile_x = 0
 let missile_y = 0
 let player_x = 0
@@ -44,16 +45,23 @@ basic.forever(function () {
 basic.forever(function () {
     if (_true <= 1) {
         for (let index = 0; index < 4; index++) {
-            led.plot(alien_x, alien_y)
+            led.plot(alien_x, z)
             basic.pause(500)
-            led.unplot(alien_x, alien_y)
+            led.unplot(alien_x, z)
             alien_x += 1
         }
         for (let index = 0; index < 4; index++) {
-            led.plot(alien_x, alien_y)
+            led.plot(alien_x, z)
             basic.pause(500)
-            led.unplot(alien_x, alien_y)
+            led.unplot(alien_x, z)
             alien_x += -1
         }
+        led.plot(alien_x, z)
+        basic.pause(500)
+        led.unplot(alien_x, z)
+        z += 1
+        led.unplot(alien_x, z)
+        basic.pause(500)
+        led.plot(alien_x, z)
     }
 })
